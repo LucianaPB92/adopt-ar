@@ -1,3 +1,9 @@
+let usuario = JSON.parse(localStorage.getItem("user")) || null;
+
+if (usuario.rol !== "admin") {
+  document.getElementById("administrador").innerHTML = "";
+}
+
 let mascotas = JSON.parse(localStorage.getItem("mascotas")) || [];
 
 const cargarDestacados = () => {

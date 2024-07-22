@@ -178,7 +178,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form id="formulario-update">
+            <form id="formulario-update" onsubmit="actualizarMascota(event)">
               <div class="mb-3">
                 <label for="nombre" class="form-label"
                   ><span class="text-danger fw-bold">*</span>Nombre</label
@@ -188,7 +188,7 @@
               <div class="mb-3">
                 <label for="especies" class="form-label">Especie</label>
                 <select
-                  id="especies"
+                  id="especie"
                   class="form-select"
                   aria-label="especies"
                 ></select>

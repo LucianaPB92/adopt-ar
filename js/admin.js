@@ -43,7 +43,7 @@ let estaturas = ["pequeño", "mediano", "grande"];
 //capturar elementos del DOM de los selects
 // let listaEspecies = document.querySelector('#especies')
 let nombre = document.querySelector("#nombre");
-let listaEspecies = document.getElementById("especies");
+let listaEspecies = document.getElementById("especie");
 let raza = document.querySelector("#raza");
 let edad = document.querySelector("#edad");
 let listaSexo = document.getElementById("sexo");
