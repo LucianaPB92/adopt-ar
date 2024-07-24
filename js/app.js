@@ -19,6 +19,7 @@ const cargarDestacados = () => {
                 <div class="card-body">
                 <h5 class="card-title">${destacado.nombre}</h5>
                 <p class="card-text">${destacado.raza}</p>
+                <a href="#" onclick="irMascota('${destacado.id}')">Ver más...</a>
                 </div>
              </div>`;
 
@@ -32,5 +33,9 @@ const cargarDestacados = () => {
     contenedor.append(col);
   }
 };
+
+function irMascota(id) {
+  location.href = `../pages/mascota.html?id=${id}`;
+}
 
 cargarDestacados();
