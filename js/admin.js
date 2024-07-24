@@ -32,6 +32,24 @@ class Mascota {
 
 let mascotas = JSON.parse(localStorage.getItem("mascotas")) || [];
 let formularioValido = true;
+// let usuario = JSON.parse(localStorage.getItem("user")) || null;
+
+//Validar usuario-------------
+const validarUsuario = () => {
+  // if(usuario){
+  //   if(usuario.rol !=='admin'){
+
+  //   }
+  // }
+  if (usuario?.rol !== "admin") {
+    let alerta = /*HTML */ `<div class="alert alert-danger" role="alert">
+ No dispone de los permisos necesarios para acceder. <a href="./login.html" class="alert-link">Inicie sesión con otra cuenta.</a> 
+</div>`;
+    document.querySelector("main").innerHTML = alerta;
+  }
+};
+
+validarUsuario();
 
 //array o lista de especies
 let especies = ["perro", "gato", "anfibio", "roedor", "ave", "exótico", "pez"];

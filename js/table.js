@@ -1,4 +1,4 @@
-let cuerpoTabla = document.querySelector("tbody");
+let cuerpoTabla = document.querySelector("tbody") || null;
 let contadorMascotas = document.getElementById("count");
 let idMascota = null;
 const myModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
@@ -7,38 +7,40 @@ const myModal = new bootstrap.Modal(document.getElementById("modalUpdate"));
 crearTabla();
 
 function crearTabla() {
-  cuerpoTabla.innerHTML = "";
-  contadorMascotas.innerText = "Mascotas registradas: " + mascotas.length;
-  // if(localStorage.getItem('mascotas')){
-  //     mascotas = JSON.parse(localStorage.getItem('mascotas'))
-  // }else{
-  //     mascotas=[]
-  // }
-  if (mascotas.length > 0) {
-    //recorrer el array
-    mascotas.map((mascota) => {
-      let fila = document.createElement("tr");
-      let celdas = /*HTML */ `<td>${mascota.nombre}</td>
-          <td>${mascota.especie}</td>
-          <td>${mascota.raza}</td>
-          <td>${mascota.edad}</td>
-          <td>${mascota.sexo}</td>
-          <td>${mascota.estatura}</td>
-          <td>${mascota.color}</td>
-          <td>
-          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate" onclick="cargarFormulario('${mascota.id}')">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
-          <button class="btn btn-danger" onclick="borrarRegistro('${mascota.id}')">
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-          </button>
-          </td>`;
+  if (cuerpoTabla) {
+    cuerpoTabla.innerHTML = "";
+    contadorMascotas.innerText = "Mascotas registradas: " + mascotas.length;
+    // if(localStorage.getItem('mascotas')){
+    //     mascotas = JSON.parse(localStorage.getItem('mascotas'))
+    // }else{
+    //     mascotas=[]
+    // }
+    if (mascotas.length > 0) {
+      //recorrer el array
+      mascotas.map((mascota) => {
+        let fila = document.createElement("tr");
+        let celdas = /*HTML */ `<td>${mascota.nombre}</td>
+            <td>${mascota.especie}</td>
+            <td>${mascota.raza}</td>
+            <td>${mascota.edad}</td>
+            <td>${mascota.sexo}</td>
+            <td>${mascota.estatura}</td>
+            <td>${mascota.color}</td>
+            <td>
+            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalUpdate" onclick="cargarFormulario('${mascota.id}')">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-danger" onclick="borrarRegistro('${mascota.id}')">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+            </td>`;
 
-      fila.innerHTML = celdas;
-      cuerpoTabla.append(fila);
-    });
-  } else {
-    cuerpoTabla.append("No hay datos para mostrar");
+        fila.innerHTML = celdas;
+        cuerpoTabla.append(fila);
+      });
+    } else {
+      cuerpoTabla.append("No hay datos para mostrar");
+    }
   }
 }
 

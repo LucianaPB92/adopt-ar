@@ -1,6 +1,5 @@
-let usuario = JSON.parse(localStorage.getItem("user")) || null;
-
-if (usuario.rol !== "admin") {
+//Si está la opción rol o no
+if (usuario?.rol !== "admin") {
   document.getElementById("administrador").innerHTML = "";
 }
 

@@ -17,6 +17,11 @@ const inicializarUsuarios = () => {
   localStorage.setItem("users", JSON.stringify(users));
 };
 
+const logOut = () => {
+  localStorage.removeItem("user");
+};
+logOut();
+
 let correo = document.getElementById("email");
 let pass = document.getElementById("password");
 
@@ -51,10 +56,4 @@ const logIn = (event) => {
   }
 };
 
-const logOut = () => {
-  localStorage.removeItem("user");
-};
-
 document.getElementById("formulario").addEventListener("submit", logIn);
-
-logOut();
