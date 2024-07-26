@@ -34,8 +34,4 @@ const cargarDestacados = () => {
   }
 };
 
-function irMascota(id) {
-  location.href = `../pages/mascota.html?id=${id}`;
-}
-
 cargarDestacados();

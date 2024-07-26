@@ -15,7 +15,9 @@ const crearTarjetas = (array) => {
                 <img src=${mascota.imagen} class="card-img-top" alt=${mascota.nombre}>
                 <div class="card-body d-flex justify-content-between align-items-center">
                 <div>
-                <h5 class="card-title">${mascota.nombre}</h5>
+                <a class="nav-link" href="#" onclick="irMascota('${mascota.id}')">
+                <h5 class="card-title">${mascota.nombre}</h5></a>
+               
                 <p class="card-text">${mascota.raza}</p>
                 </div>
                 <div>
